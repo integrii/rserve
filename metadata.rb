@@ -4,5 +4,5 @@ maintainer_email 'ericgreer@gmail.com'
 license          'All rights reserved'
 description      'Installs/Configures rserve'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '1.0.2'
+version          '1.1.3'
 depends          'yum-epel'

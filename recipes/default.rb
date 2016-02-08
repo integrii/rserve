@@ -44,6 +44,15 @@ template "rserve.erb" do
   notifies :start, "service[rserve]"
 end
 
+# add default config for allowing connections from more than localhost
+template "Rserv.conf" do
+	path "/etc/Rserv.conf"
+	source "Rserv.conf.erb"
+	owner "root"
+	group "root"
+	mode "0755"
+end
+
 # create user for service
 user 'rserve' do
   comment 'rserve daemon'
