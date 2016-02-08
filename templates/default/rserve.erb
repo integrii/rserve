@@ -1,0 +1,62 @@
+#!/bin/bash
+#
+#       rserve  Rserve headless server daemon
+#
+#       chkconfig: 345 70 30
+#       description: Runs rserve in headless mode.  Listens on port 6311 by default.
+#       This file is managed by the chef cookbook rserve.
+#       http://github.com/integrii/rserve
+#       processname: rserve
+#
+
+
+# Source function library.
+. /etc/init.d/functions
+
+
+STARTCMD="/usr/bin/Rscript"
+STARTARGS=" --vanilla /var/startServer.R"
+LOCKFILE="/var/lock/subsys/rserve"
+PIDFILE="/var/run/rserve.pid"
+
+start() {
+        echo -n "Starting rserve: "
+        daemon --user rserve $STARTCMD $STARTARGS
+        RETVAL=$?
+        touch $LOCKFILE
+        return $RETVAL
+}
+
+stop() {
+        echo -n "Shutting down rserve: "
+        killall Rserve
+        RETVAL=$?
+        rm -f $LOCKFILE
+        return 0
+}
+
+status(){
+		[ -f $LOCKFILE ] && echo "Rserve running." || echo "Rserve not running."
+		return 0
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+	echo "Usage: rserve {start|stop|status}"
+        exit 1
+        ;;
+esac
+exit $?

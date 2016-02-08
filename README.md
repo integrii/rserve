@@ -1,9 +1,14 @@
 rserve Cookbook
 ===============
-Installs and does some configuration for [R](https://www.r-project.org/) and [Rserve](https://rforge.net/Rserve/).
+Installs and does some configuration for [R](https://www.r-project.org/) and [Rserve](https://rforge.net/Rserve/).  Rserve listens on port 6311 by default.  No implementation of the /etc/rserve.conf file has been added to this cookbook yet.  Feel free to add your own with your own cookbook or contribute to this repository.
+
+[Documentation on rserve](https://rforge.net/Rserve/doc.html)
 
 Requirements
 ------------
+
+# Cookbooks
+- yum-epel
 
 # Operating Systems
 - Centos 6 x86_64
