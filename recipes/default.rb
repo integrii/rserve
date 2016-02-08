@@ -57,6 +57,12 @@ service "rserve" do
   action [ :enable, :start]
 end 
 
+# disable firewall
+service "iptables" do
+  action [ :disable, :stop]
+end 
+
+
 # Set rserve-setup-complete flag on node
 ruby_block "rserve-setup-complete" do
 	block do
