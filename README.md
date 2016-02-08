@@ -1,6 +1,6 @@
 rserve Cookbook
 ===============
-Installs and does some configuration for [R](https://www.r-project.org/) and [Rserve](https://rforge.net/Rserve/).  Package is downloaded from [rforge.net](http://rforge.net).  Rserve listens on port 6311 by default.  No implementation of the /etc/rserve.conf file has been added to this cookbook yet.  Feel free to add your own with your own cookbook or contribute to this repository.
+Installs and does some configuration for [R](https://www.r-project.org/) and [Rserve](https://rforge.net/Rserve/).  Package is downloaded from [rforge.net](http://rforge.net).  Rserve listens on port 6311 by default and accepts connections from all source IP addresses.  No implementation of the /etc/rserve.conf file has been added to this cookbook yet.  Feel free to add your own with your own cookbook or contribute to this repository.
 
 [Documentation on rserve](https://rforge.net/Rserve/doc.html)
 
